@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.0.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Waktu pembuatan: 20 Jun 2020 pada 09.01
--- Versi server: 10.3.16-MariaDB
--- Versi PHP: 7.3.6
+-- Host: localhost:3306
+-- Generation Time: Jan 10, 2024 at 05:44 PM
+-- Server version: 10.4.20-MariaDB
+-- PHP Version: 8.0.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -25,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `gejala`
+-- Table structure for table `gejala`
 --
 
 CREATE TABLE `gejala` (
@@ -34,7 +33,7 @@ CREATE TABLE `gejala` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `gejala`
+-- Dumping data for table `gejala`
 --
 
 INSERT INTO `gejala` (`id_gejala`, `gejala`) VALUES
@@ -69,7 +68,7 @@ INSERT INTO `gejala` (`id_gejala`, `gejala`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `penyakit`
+-- Table structure for table `penyakit`
 --
 
 CREATE TABLE `penyakit` (
@@ -78,7 +77,7 @@ CREATE TABLE `penyakit` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `penyakit`
+-- Dumping data for table `penyakit`
 --
 
 INSERT INTO `penyakit` (`id_penyakit`, `penyakit`) VALUES
@@ -92,7 +91,7 @@ INSERT INTO `penyakit` (`id_penyakit`, `penyakit`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `relasi`
+-- Table structure for table `relasi`
 --
 
 CREATE TABLE `relasi` (
@@ -102,7 +101,7 @@ CREATE TABLE `relasi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `relasi`
+-- Dumping data for table `relasi`
 --
 
 INSERT INTO `relasi` (`id_relasi`, `id_gejala`, `id_penyakit`) VALUES
@@ -137,7 +136,7 @@ INSERT INTO `relasi` (`id_relasi`, `id_gejala`, `id_penyakit`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `solusi`
+-- Table structure for table `solusi`
 --
 
 CREATE TABLE `solusi` (
@@ -147,7 +146,7 @@ CREATE TABLE `solusi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `solusi`
+-- Dumping data for table `solusi`
 --
 
 INSERT INTO `solusi` (`id_solusi`, `id_penyakit`, `solusi`) VALUES
@@ -179,7 +178,7 @@ INSERT INTO `solusi` (`id_solusi`, `id_penyakit`, `solusi`) VALUES
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `user`
+-- Table structure for table `user`
 --
 
 CREATE TABLE `user` (
@@ -193,36 +192,37 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data untuk tabel `user`
+-- Dumping data for table `user`
 --
 
 INSERT INTO `user` (`id_user`, `role`, `nama`, `email`, `alamat`, `tgl_lahir`, `password`) VALUES
 (1, 1, 'Bayu Adi', 'bayu@gmail.com', 'Belayu', '2020-04-15', '$2y$10$QxzfxQ6eAAfr48pne8ZX0OvPTRrvD/xPa8qEElpby.6O0LYEW2FFm'),
-(2, 0, 'admin', 'admin@gmail.com', 'Tabanan', '2020-04-17', '$2y$10$ASS50col3niwOOku4Zkky.HpmF18hiPWL9pi2DnE8CS7jTDSD4ufe'),
+(2, 0, 'admin', 'admin@gmail.com', 'Tabanan', '2020-04-17', '$2y$10$fHlVcUZNx2BCgcT.7yGtN.Z1ZgWHAwhOeLsz8A84mxrRfraqsT3Ja'),
 (4, 2, 'Dokter Budi', 'budi@gmail.com', 'Badung', '2020-04-09', '$2y$10$n2nS/Rg7Zvjdv.q1mrv7TOJYrzf18LVQQzsWuDWqPf5Ieos/OIWiG'),
 (5, 1, 'adi', 'adi@gmail.com', 'Badung', '2020-05-21', '$2y$10$ge9myh0TIg1tGwsOm6KZ5eriUxWhYswmHFx84dEsrwxpYbXdijKGC'),
 (6, 2, 'Dokter Jaya', 'jaya@gmail.com', 'Denpasar', '2020-05-12', '$2y$10$Hb0Q.SpDMZ1m34GlQSnB4.GkKM9wBRwWsrHUIFwn4sV6M7JGNPIV.'),
 (7, 2, 'Dokter Sally', 'sally@gmail.com', 'Kuta', '2020-05-28', '$2y$10$xP98m86lQdD8oE/dpTyvh.7.4oAsbcj0.H5Ekw0UhGFCoyaqc49W2'),
-(10, 1, 'test', 'test@gmail.com', 'asjadja', '2020-06-15', '$2y$10$KIVNLDg1RABhFvjKmfwR4eDUb90lCthb5/ZgNW8GNFvhL3L5ju0qO');
+(10, 1, 'test', 'test@gmail.com', 'asjadja', '2020-06-15', '$2y$10$KIVNLDg1RABhFvjKmfwR4eDUb90lCthb5/ZgNW8GNFvhL3L5ju0qO'),
+(11, 1, 'Hafid Rizky Fiyantoko', 'hafidzkenway@std.unissula.ac.id', 'Genuk, Semarang', '1999-12-05', '$2y$10$cRIpdygyM1sbyiDOOqnwceER9Q/hHztNjau9SC.SPaJWxNvjT5/8i');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indeks untuk tabel `gejala`
+-- Indexes for table `gejala`
 --
 ALTER TABLE `gejala`
   ADD PRIMARY KEY (`id_gejala`);
 
 --
--- Indeks untuk tabel `penyakit`
+-- Indexes for table `penyakit`
 --
 ALTER TABLE `penyakit`
   ADD PRIMARY KEY (`id_penyakit`);
 
 --
--- Indeks untuk tabel `relasi`
+-- Indexes for table `relasi`
 --
 ALTER TABLE `relasi`
   ADD PRIMARY KEY (`id_relasi`),
@@ -230,65 +230,65 @@ ALTER TABLE `relasi`
   ADD KEY `id_penyakit` (`id_penyakit`);
 
 --
--- Indeks untuk tabel `solusi`
+-- Indexes for table `solusi`
 --
 ALTER TABLE `solusi`
   ADD PRIMARY KEY (`id_solusi`),
   ADD KEY `id_penyakit` (`id_penyakit`);
 
 --
--- Indeks untuk tabel `user`
+-- Indexes for table `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id_user`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `gejala`
+-- AUTO_INCREMENT for table `gejala`
 --
 ALTER TABLE `gejala`
   MODIFY `id_gejala` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=44;
 
 --
--- AUTO_INCREMENT untuk tabel `penyakit`
+-- AUTO_INCREMENT for table `penyakit`
 --
 ALTER TABLE `penyakit`
   MODIFY `id_penyakit` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
--- AUTO_INCREMENT untuk tabel `relasi`
+-- AUTO_INCREMENT for table `relasi`
 --
 ALTER TABLE `relasi`
   MODIFY `id_relasi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
--- AUTO_INCREMENT untuk tabel `solusi`
+-- AUTO_INCREMENT for table `solusi`
 --
 ALTER TABLE `solusi`
   MODIFY `id_solusi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
--- AUTO_INCREMENT untuk tabel `user`
+-- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `relasi`
+-- Constraints for table `relasi`
 --
 ALTER TABLE `relasi`
   ADD CONSTRAINT `relasi_ibfk_1` FOREIGN KEY (`id_gejala`) REFERENCES `gejala` (`id_gejala`),
   ADD CONSTRAINT `relasi_ibfk_2` FOREIGN KEY (`id_penyakit`) REFERENCES `penyakit` (`id_penyakit`);
 
 --
--- Ketidakleluasaan untuk tabel `solusi`
+-- Constraints for table `solusi`
 --
 ALTER TABLE `solusi`
   ADD CONSTRAINT `solusi_ibfk_1` FOREIGN KEY (`id_penyakit`) REFERENCES `penyakit` (`id_penyakit`);
